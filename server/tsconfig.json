@@ -1,0 +1,42 @@
+//The tsconfig.json file allows you to specify the root level files and 
+//the compiler options that requires to compile a TypeScript project
+{
+
+  //It accepts a string value containing a path to another configuration file to inherit from.
+  // The configuration from the base file is loaded first, then overridden by those in the inheriting config file.
+  "extends": "./node_modules/adonis-preset-ts/tsconfig",
+
+  //The "include" property allows you to include a list of TypeScript files using the glob wildcards pattern.
+  "include": [
+    "**/*"
+  ],
+  //The "exclude" property allows you to exclude a list of TypeScript files using the glob wildcards pattern.
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "./",
+    "sourceMap": true,
+    "paths": {
+      "App/*": [
+        "./app/*"
+      ],
+      "Config/*": [
+        "./config/*"
+      ],
+      "Contracts/*": [
+        "./contracts/*"
+      ],
+      "Database/*": [
+        "./database/*"
+      ]
+    },
+    "types": [
+      "@adonisjs/core",
+      "@adonisjs/repl",
+      "@adonisjs/lucid"
+    ]
+  }
+}
